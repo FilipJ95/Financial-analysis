@@ -12,7 +12,7 @@ I projektet har data transformerats och framställts genom tresteg för att gå 
 ---
 
 ## 🏆 Resultat & Utdata
-*   **Automatiserade beräkningar:** Systemet gör automatiska beräkningar för finansiella poster, vilket sparar mycket tid jämfört med att samma sak  i Excel.
+*   **Automatiserade beräkningar:** Systemet gör automatiska beräkningar för finansiella poster, vilket sparar mycket tid jämfört med manuellt arbete i Excel.
 *   **Genererad Excel-rapport:**  När beräkningarna är utförda laddas informationen automatiskt upp till en excel-fil: `Finansiell_Analys_2018_2020.xlsx`.
 
 ### Sammanställda nyckeltal i rapporten
