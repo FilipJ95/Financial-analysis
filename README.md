@@ -1,23 +1,22 @@
 # Finansiell Analys & ETL-Pipeline (2018–2020)
-
-Detta projekt demonstrerar en komplett **ETL-pipeline (Extract, Transform, Load)** och finansiell analys. Processen sträcker sig från relationsdatabaser i SQL till datatvätt, automatisering och beräkning av ekonomiska nyckeltal i Python.
+I detta projekt har jag arbetat med en finansiell analys från en Excel-fil hämtad från Kaggle. Detta har jag gjort med hjälp av en **ETL-pipeline (Extract, Transform, Load)** .
 
 ## 🏗️ Arkitektur & Dataflöde
-I detta projekt har data transformerats och strukturerats genom en robust trestegskedja för att gå från rådata till färdiga finansiella insikter:
+I projektet har data transformerats och framställts genom tresteg för att gå från rådata till färdig finansiell information: 
 
-*   **Rådata (xlsx):** Excel-fil innehållande rå transaktionsdata samt kontoplan (`Chart of Accounts`).
-*   **Python (Datatvätt & ETL):** Skript (`etl_upload.py`) som använder Pandas för att rensa bort tomma kolumner, hantera saknade värden samt konvertera datatyper. Datan migreras sedan automatiskt till databasen via SQLAlchemy.
-*   **MySQL (Lagring & Vy):** Den tvättade datan lagras i en stjärnstruktur bestående av dimensionstabeller (`dim_accounts`) och faktatabeller (`fact_transactions`). En SQL-vy (`v_financial_reporting`) har skapats för att effektivt samla transaktionsdatan.
-*   **Python (Finansiell Analys):** Skript (`financial_analysis.py`) som hämtar datan från SQL-vyn, separerar resultat- och balansräkning, samt beräknar centrala nyckeltal för åren 2018–2020.
+*   **Rådata (xlsx):** Excel-fil som innehåller transaktions data ('GL')samt kontoplan (`Chart of Accounts`).
+*   **Python (Datatvätt & ETL):** Ett skript som hämtar data från Excel-filen. Data transformeras genom att rätt formatering samt rensning av tomma rader. Sedan laddas data automatiskt upp till MySQL. 
+*   **MySQL (Lagring & Vy):** Data lagras i två tabeller: dim_accounts (kontoplan) och fact_transactions (transaktioner). En vy skapas sedan där tabellerna slås ihop och visar transaktionerna, transaktionernas  belopp samt deras kontotyp.
+*   **Python (Finansiell Analys):** Vyn hämtas i ett python-skript. Resultat- och balansräkning beräknas för åren 2018-2020 samt olika nyckeltal. 
 
 ---
 
 ## 🏆 Resultat & Utdata
-*   **Automatiserade beräkningar:** Systemet separerar automatiskt transaktionerna och räknar ut komplexa finansiella poster per år, vilket eliminerar manuella formler i Excel.
-*   **Genererad Excel-rapport:** All sammanställd data och formaterade nyckeltal exporteras till en slutgiltig rapport: `Finansiell_Analys_2018_2020.xlsx`.
+*   **Automatiserade beräkningar:** Systemet gör automatiska beräkningar för finansiella poster, vilket sparar mycket tid jämfört med att samma sak  i Excel.
+*   **Genererad Excel-rapport:**  När beräkningarna är utförda laddas informationen automatiskt upp till en excel-fil: `Finansiell_Analys_2018_2020.xlsx`.
 
 ### Sammanställda nyckeltal i rapporten
-Analysen levererar följande nyckeltal i den slutgiltiga rapporten:
+Analysen visar följande nyckeltal i den slutgiltiga rapporten:
 *   **Omsättning & Nettoresultat**
 *   **Bruttovinst & Vinstmarginal (%)**
 *   **Soliditet (%)**
